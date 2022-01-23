@@ -1,0 +1,32 @@
+dependencies:
+  # organisation/repo@version
+  - smartcontractkit/chainlink-brownie-contracts@0.3.0
+
+# above is where it gets to know from where to download the chainlink code through which it will later download through gitHub instead of npm
+compiler:
+  solc:
+    remappings:
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@0.3.0'
+# told above what is meant by @chainlink because it could not understand it by itself
+
+dotenv: .env
+
+wallets:
+  from_key: ${private_key}
+
+networks:
+  rinkeby:
+    eth_usd_price_feed: "0x8A753747A1Fa494EC906cE90E9f37563A8AF630e"
+    verify: True
+
+  kovan:
+  
+  mainnet-fork-dev:
+    eth_usd_price_feed: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
+    verify: False
+
+  development:
+    verify: False
+
+  ganache-local:
+    verify: False
